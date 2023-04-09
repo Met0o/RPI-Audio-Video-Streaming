@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Audio and Video Streaming</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.min.js"></script>
+</head>
+<body>
+    <h1>Audio and Video Streaming</h1>
+    <img src="{{ url_for('video_feed') }}" />
+    <audio id="audio" autoplay></audio>
+    <script>
+        const socket = io();
+        socket.on('audio', (data) => {
+            const audio = document.getElementById('audio');
+            const audioBlob = new Blob([new Uint8Array(data)], { type: 'audio/wav' });
+            audio.src = URL.createObjectURL(audioBlob);
+            audio.play();
+        });
+    </script>
+</body>
+</html>
