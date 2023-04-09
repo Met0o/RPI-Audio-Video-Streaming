@@ -1,5 +1,5 @@
 # sudo apt-get install portaudio19-dev
-# pip install pyaudio Flask Flask-SocketIO
+# pip install pyaudio Flask Flask-SocketIO cv2 numpy
 import cv2
 import pyaudio
 import numpy as np
